@@ -1,6 +1,6 @@
 {
   "name": "@vizapp-france/eslint-config",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "ESlintconfig for Vizapp dev team projects",
   "main": ".eslintrc.json",
   "repository": {
