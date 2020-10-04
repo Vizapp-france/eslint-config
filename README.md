@@ -8,10 +8,6 @@
 npm i -D eslint eslint-plugin-node eslint-config-node
 ```
 
-```
-npx install-peerdeps --dev eslint-config-airbnb-base
-```
-
 ### Install the package
 
 ```
@@ -30,7 +26,7 @@ already have `ESLint` installed in your project.
 
   ```json
   scripts: {
-    "lint:js": "eslint -c node_modules/@vizapp-france/eslint-config/.eslintrc.json '**/*.js'"
+    "lint:js": "eslint -c node_modules/@vizapp-france/eslint-config/.eslintrc.json \"**/*.js\""
   }
   ```
 
