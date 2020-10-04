@@ -15,7 +15,7 @@ npx install-peerdeps --dev eslint-config-airbnb-base
 ### Install the package
 
 ```
-npm i -D @vizapp-frnace/eslint-config
+npm i -D @vizapp-france/eslint-config
 ```
 
 ## Running
