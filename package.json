@@ -1,0 +1,11 @@
+{
+  "name": "@vizapp-france/eslint-config",
+  "version": "1.0.0",
+  "description": "ESlintconfig for Vizapp dev team projects",
+  "main": ".eslintrc.json",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vizapp-france/eslint-config.git"
+  },
+  "author": "pnxdxt"
+}
