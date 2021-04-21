@@ -18,8 +18,16 @@ npm i -D @vizapp-france/eslint-config
 
 1. Create the following file `.eslintrc.js`
 
+   **JavaScript**
+
    ```javascript
    module.exports = require('@vizapp-france/eslint-config');
+   ```
+
+   **TypeScript**
+
+   ```javascript
+   module.exports = require('@vizapp-france/eslint-config/typescript');
    ```
 
 2. Add the following to `scripts` in `package.json`
