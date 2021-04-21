@@ -37,5 +37,3 @@ npm i -D @vizapp-france/eslint-config
 ## Related repos
 
 - https://github.com/vizapp-france/prettier-config
-- https://github.com/vizapp-france/eslint-config
-- https://github.com/zestia/stylelint-config
