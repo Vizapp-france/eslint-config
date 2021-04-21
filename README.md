@@ -2,12 +2,6 @@
 
 ## Installation
 
-### Install ESLint
-
-```
-npm i -D eslint
-```
-
 ### Install the package
 
 ```
