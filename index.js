@@ -3,7 +3,7 @@ module.exports = {
     // Utilise community Standard ruleset
     'standard',
     // Runs prettier as an eslint rule
-    'prettier',
+    'prettier'
   ],
   extends: [
     // Always extend eslint's recommended ruleset
@@ -11,245 +11,80 @@ module.exports = {
     // Extend community Standard ruleset
     'standard',
     // Turn off eslint rules that could conflict with prettier
-    'plugin:prettier/recommended',
+    'plugin:prettier/recommended'
   ],
   rules: {
-    'accessor-pairs': 'error',
-    'array-bracket-spacing': ['error', 'never'],
-    'arrow-spacing': ['error', {before: true, after: true}],
-    'block-spacing': ['error', 'always'],
-    'brace-style': ['error', '1tbs', {allowSingleLine: true}],
-    camelcase: ['error', {properties: 'never'}],
-    'comma-dangle': [
+    // var is block scoped, lets keep it that way
+    'block-scoped-var': 'error',
+    // Deeply nested ifs are a big smell
+    'max-depth': ['error', 2],
+    // Deeply nested code should be refactored & flattened out
+    'max-nested-callbacks': ['error', 4],
+    // Prevent hard to read code
+    'max-statements-per-line': ['error', { max: 2 }],
+    // Enforce a consistent comment styles
+    'multiline-comment-style': ['error', 'separate-lines'],
+    // Disallow use of alert dialog boxes
+    'no-alert': 'error',
+    // Disallow bitwise in general, if actually requried you can ignore this rule
+    'no-bitwise': 'error',
+    // Make sure variable name doesn't clash with argument name
+    'no-catch-shadow': 'error',
+    // Notify if console statements are left in by accident
+    'no-console': 'error',
+    // Helps disambiguate certain regexes
+    'no-div-regex': 'error',
+    // Use a single import statement
+    'no-duplicate-imports': 'error',
+    // Enforce more accurate equality check
+    'no-eq-null': 'error',
+    // Labels are not needed in this circumstance
+    'no-extra-label': 'error',
+    // Avoid polution global scope
+    'no-implicit-globals': 'error',
+    // Prefer else if
+    'no-lonely-if': 'error',
+    // Prevent creating functions in a loop
+    'no-loop-func': 'error',
+    // Make sure require calls are separate from other logic
+    'no-mixed-requires': 'error',
+    // Disallow chained assignment, difficult to read
+    'no-multi-assign': 'error',
+    // No need to use javascript:
+    'no-script-url': 'error',
+    // Prevent unused labels from being left behind
+    'no-unused-labels': 'error',
+    // Prevents unnecessary concat
+    'no-useless-concat': 'error',
+    // Prefer let or const (block scoped variables) over function scoped
+    'no-var': 'error',
+    // Warn about warning comments. Used to highlight TODO's etc in the codebase
+    'no-warning-comments': 'warn',
+    // Prefer shorthand objects
+    'object-shorthand': ['error', 'always'],
+    // Enforce whitespace between if/block statements (not dealt with by Prettier)
+    'padding-line-between-statements': [
       'error',
-      {
-        arrays: 'never',
-        objects: 'never',
-        imports: 'never',
-        exports: 'never',
-        functions: 'never',
-      },
+      { blankLine: 'always', prev: 'multiline-block-like', next: '*' },
+      { blankLine: 'always', prev: '*', next: 'multiline-block-like' }
     ],
-    'comma-spacing': ['error', {before: false, after: true}],
-    'comma-style': ['error', 'last'],
-    'computed-property-spacing': ['error', 'never'],
-    'constructor-super': 'error',
-    curly: ['error', 'multi-line'],
-    'dot-location': ['error', 'property'],
-    'dot-notation': ['error', {allowKeywords: true}],
-    'eol-last': 'error',
-    eqeqeq: ['error', 'always', {null: 'ignore'}],
-    'func-call-spacing': ['error', 'never'],
-    'generator-star-spacing': ['error', {before: true, after: true}],
-    'handle-callback-err': ['error', '^(err|error)$'],
-    indent: [
-      'error',
-      2,
-      {
-        SwitchCase: 1,
-        VariableDeclarator: 1,
-        outerIIFEBody: 1,
-        MemberExpression: 1,
-        FunctionDeclaration: {parameters: 1, body: 1},
-        FunctionExpression: {parameters: 1, body: 1},
-        CallExpression: {arguments: 1},
-        ArrayExpression: 1,
-        ObjectExpression: 1,
-        ImportDeclaration: 1,
-        flatTernaryExpressions: false,
-        ignoreComments: false,
-        ignoredNodes: ['TemplateLiteral *'],
-      },
-    ],
-    'key-spacing': ['error', {beforeColon: false, afterColon: true}],
-    'keyword-spacing': ['error', {before: true, after: true}],
-    'lines-between-class-members': [
-      'error',
-      'always',
-      {exceptAfterSingleLine: true},
-    ],
-    'new-cap': ['error', {newIsCap: true, capIsNew: false, properties: true}],
-    'new-parens': 'error',
-    'no-array-constructor': 'error',
-    'no-async-promise-executor': 'error',
-    'no-caller': 'error',
-    'no-case-declarations': 'error',
-    'no-class-assign': 'error',
-    'no-compare-neg-zero': 'error',
-    'no-cond-assign': 'error',
-    'no-const-assign': 'error',
-    'no-constant-condition': ['error', {checkLoops: false}],
-    'no-control-regex': 'error',
-    'no-debugger': 'error',
-    'no-delete-var': 'error',
-    'no-dupe-args': 'error',
-    'no-dupe-class-members': 'error',
-    'no-dupe-keys': 'error',
-    'no-duplicate-case': 'error',
-    'no-empty-character-class': 'error',
-    'no-empty-pattern': 'error',
-    'no-eval': 'error',
-    'no-ex-assign': 'error',
-    'no-extend-native': 'error',
-    'no-extra-bind': 'error',
-    'no-extra-boolean-cast': 'error',
-    'no-extra-parens': ['error', 'functions'],
-    'no-fallthrough': 'error',
-    'no-floating-decimal': 'error',
-    'no-func-assign': 'error',
-    'no-global-assign': 'error',
-    'no-implied-eval': 'error',
-    'no-inner-declarations': ['error', 'functions'],
-    'no-invalid-regexp': 'error',
-    'no-irregular-whitespace': 'error',
-    'no-iterator': 'error',
-    'no-labels': ['error', {allowLoop: false, allowSwitch: false}],
-    'no-lone-blocks': 'error',
-    'no-misleading-character-class': 'error',
-    'no-prototype-builtins': 'error',
-    'no-useless-catch': 'error',
-    'no-mixed-operators': [
-      'error',
-      {
-        groups: [
-          ['==', '!=', '===', '!==', '>', '>=', '<', '<='],
-          ['&&', '||'],
-          ['in', 'instanceof'],
-        ],
-        allowSamePrecedence: true,
-      },
-    ],
-    'no-mixed-spaces-and-tabs': 'error',
-    'no-multi-spaces': 'error',
-    'no-multi-str': 'error',
-    'no-multiple-empty-lines': ['error', {max: 1, maxEOF: 0}],
-    'no-negated-in-lhs': 'error',
-    'no-new': 'error',
-    'no-new-func': 'error',
-    'no-new-object': 'error',
-    'no-new-require': 'error',
-    'no-new-symbol': 'error',
-    'no-new-wrappers': 'error',
-    'no-obj-calls': 'error',
-    'no-octal': 'error',
-    'no-octal-escape': 'error',
-    'no-path-concat': 'error',
-    'no-proto': 'error',
-    'no-redeclare': ['error', {builtinGlobals: false}],
-    'no-regex-spaces': 'error',
-    'no-return-assign': ['error', 'except-parens'],
-    'no-self-assign': ['error', {props: true}],
-    'no-self-compare': 'error',
-    'no-sequences': 'error',
-    'no-shadow-restricted-names': 'error',
-    'no-sparse-arrays': 'error',
-    'no-tabs': 'error',
-    'no-template-curly-in-string': 'error',
-    'no-this-before-super': 'error',
-    'no-throw-literal': 'error',
-    'no-trailing-spaces': 'error',
-    'no-undef': 'error',
-    'no-undef-init': 'error',
-    'no-unexpected-multiline': 'error',
-    'no-unmodified-loop-condition': 'error',
-    'no-unneeded-ternary': ['error', {defaultAssignment: false}],
-    'no-unreachable': 'error',
-    'no-unsafe-finally': 'error',
-    'no-unsafe-negation': 'error',
-    'no-unused-expressions': [
-      'error',
-      {
-        allowShortCircuit: true,
-        allowTernary: true,
-        allowTaggedTemplates: true,
-      },
-    ],
-    'no-unused-vars': [
-      'error',
-      {vars: 'all', args: 'none', ignoreRestSiblings: true},
-    ],
-    'no-use-before-define': [
-      'error',
-      {functions: false, classes: false, variables: false},
-    ],
-    'no-useless-call': 'error',
-    'no-useless-computed-key': 'error',
-    'no-useless-constructor': 'error',
-    'no-useless-escape': 'error',
-    'no-useless-rename': 'error',
-    'no-useless-return': 'error',
-    'no-void': 'error',
-    'no-whitespace-before-property': 'error',
-    'no-with': 'error',
-    'object-curly-newline': ['error', {multiline: true, consistent: true}],
-    'object-curly-spacing': ['error', 'always'],
-    'object-property-newline': [
-      'error',
-      {allowMultiplePropertiesPerLine: true},
-    ],
-    'one-var': ['error', {initialized: 'never'}],
-    'operator-linebreak': [
-      'error',
-      'after',
-      {overrides: {'?': 'before', ':': 'before', '|>': 'before'}},
-    ],
-    'padded-blocks': [
-      'error',
-      {blocks: 'never', switches: 'never', classes: 'never'},
-    ],
-    'prefer-const': ['error', {destructuring: 'all'}],
-    'prefer-promise-reject-errors': 'error',
-    'quote-props': ['error', 'as-needed'],
-    quotes: [
-      'error',
-      'single',
-      {avoidEscape: true, allowTemplateLiterals: false},
-    ],
-    'rest-spread-spacing': ['error', 'never'],
-    semi: ['error', 'never'],
-    'semi-spacing': ['error', {before: false, after: true}],
-    'space-before-blocks': ['error', 'always'],
-    'space-before-function-paren': ['error', 'always'],
-    'space-in-parens': ['error', 'never'],
-    'space-infix-ops': 'error',
-    'space-unary-ops': ['error', {words: true, nonwords: false}],
-    'spaced-comment': [
-      'error',
-      'always',
-      {
-        line: {markers: ['*package', '!', '/', ',', '=']},
-        block: {
-          balanced: true,
-          markers: ['*package', '!', ',', ':', '::', 'flow-include'],
-          exceptions: ['*'],
-        },
-      },
-    ],
-    'symbol-description': 'error',
-    'template-curly-spacing': ['error', 'never'],
-    'template-tag-spacing': ['error', 'never'],
-    'unicode-bom': ['error', 'never'],
-    'use-isnan': 'error',
-    'valid-typeof': ['error', {requireStringLiterals: true}],
-    'wrap-iife': ['error', 'any', {functionPrototypeMethods: true}],
-    'yield-star-spacing': ['error', 'both'],
-    yoda: ['error', 'never'],
-
-    'import/export': 'error',
-    'import/first': 'error',
-    'import/no-absolute-path': [
-      'error',
-      {esmodule: true, commonjs: true, amd: false},
-    ],
-    'import/no-duplicates': 'error',
-    'import/no-named-default': 'error',
-    'import/no-webpack-loader-syntax': 'error',
-
-    'node/no-deprecated-api': 'error',
-    'node/process-exit-as-throw': 'error',
-
-    'promise/param-names': 'error',
-
-    'standard/no-callback-literal': 'error',
-  },
+    // Prefer { ... } over Object.assign
+    'prefer-object-spread': 'error',
+    // Prefer [...args] over .apply(obj, args)
+    'prefer-spread': 'error',
+    // Prefer template literals instead of string concatenation
+    'prefer-template': 'error',
+    // Prevent subtle race conditions
+    'require-atomic-updates': 'error',
+    // Highlight functions flagged as async but which don't use await
+    'require-await': 'error',
+    // Highlight functions flagged with an asterisk but which don't use yield
+    'require-yield': 'error',
+    // vars are hoisted so lets keep it clear
+    'vars-on-top': 'error',
+    // Enforce use of second parameter with parseInt/Float etc
+    radix: 'error',
+    // Enforce use of strict directive
+    strict: 'error'
+  }
 };
