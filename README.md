@@ -5,7 +5,7 @@
 ### Install ESLint
 
 ```
-npm i -D eslint eslint-plugin-node eslint-config-node
+npm i -D eslint
 ```
 
 ### Install the package
@@ -14,23 +14,21 @@ npm i -D eslint eslint-plugin-node eslint-config-node
 npm i -D @vizapp-france/eslint-config
 ```
 
+## Setup
+
+1. Create the following file `.eslintrc.js`
+
+   ```javascript
+   module.exports = require('@vizapp-france/eslint-config');
+   ```
+
+2. Add the following to `scripts` in `package.json`
+
+   ```
+   "lint:js": "eslint ."
+   ```
+
 ## Running
-
-As this package only provides the ESLint configuration, it is assumed you
-already have `ESLint` installed in your project.
-
-- It's recommended to install the relevant Editor Addons/Plugins
-
-- It's recommended to add a ESLint script to `package.json`. An example one
-  is:
-
-  ```json
-  scripts: {
-    "lint:js": "eslint -c node_modules/@vizapp-france/eslint-config/.eslintrc.json \"**/*.js\""
-  }
-  ```
-
-  You can then run the following, to automatically format your project's code:
 
   ```
   npm run lint:js
